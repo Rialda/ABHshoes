@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -14,7 +16,7 @@ gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 
 gem 'pg'
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'taps'
 
 # Use Puma as the app server
