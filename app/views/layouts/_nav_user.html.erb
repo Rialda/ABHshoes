@@ -64,11 +64,24 @@ ul.dropdown-menu {
         <li><a href="#">Sportska obuca</a></li>
       </ul>
             <ul class="nav navbar-right">
-        <li><a href="#">Welcome</a></li>
-         <li><a href="#">| </a></li>
-        <li><a href="#"><img src="http://www.freeiconspng.com/uploads/basket-cart-icon-27.png" style="height:20px; width:20px;" /></a></li>
+        <li>
+
+
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.email %>
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to('Edit Profile', edit_user_registration_path) %></a></li>
+              <li><a href="#">...</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></a></li>
+            </ul>
+          </div>
+
+        </li>
+
         <li><a href="#">| </a></li>
-        <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+        <li><a href="#"><img src="http://www.freeiconspng.com/uploads/basket-cart-icon-27.png" style="height:20px; width:20px;" /></a></li>
 
 
       </ul>
