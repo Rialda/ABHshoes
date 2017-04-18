@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def category_page
+  end
+
 end
