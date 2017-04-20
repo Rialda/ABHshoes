@@ -8,4 +8,7 @@ class PagesController < ApplicationController
   def category_page
   end
 
+  def product_details
+  end
+
 end
