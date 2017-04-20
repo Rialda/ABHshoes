@@ -11,4 +11,10 @@ class PagesController < ApplicationController
   def product_details
   end
 
+  def user_profile
+  end
+
+  def admin_dashboard
+  end
+
 end

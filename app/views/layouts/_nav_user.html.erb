@@ -68,7 +68,7 @@ ul.dropdown-menu {
 
 
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.email %>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.username %>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               <li><a href="#"><%= link_to('Edit Profile', edit_user_registration_path) %></a></li>

@@ -1,0 +1,111 @@
+
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.submit "Log In" %>
+<% end %>
+
+<!--
+<div class="container">
+
+  <form>
+    <div class="form-group">
+      <label for="name">Naziv proizvoda: </label>
+      <input type="text" class="form-control ime" id="name" placeholder="Naziv proizvoda: ">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="kategorija">Kategorija</label>
+      <select class="form-control" id="kategorija">
+        <option>Kategorija1</option>
+        <option>Kategorija2</option>
+        <option>Kategorija3</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="brend">Brend</label>
+      <select class="form-control" id="brend">
+        <option>Brend1</option>
+        <option>Brend2</option>
+        <option>Brend3</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="velicina">Velicina</label>
+      <select class="form-control" id="velicina">
+        <option>37</option>
+        <option>38</option>
+        <option>39</option>
+        <option>40</option>
+        <option>41</option>
+      </select>
+    </div>
+
+
+        <div class="form-group">
+          <label for="stil">Stil</label>
+          <select class="form-control" id="stil">
+            <option>Stil1</option>
+            <option>Stil2</option>
+            <option>Stil3</option>
+            <option>Stil4</option>
+            <option>Stil5</option>
+          </select>
+        </div>
+
+
+
+    <div class="form-group">
+      <label for="boje">Odabir boja: </label>
+      <select multiple class="form-control" id="boje">
+        <option>Crna</option>
+        <option>Crvena</option>
+        <option>Zuta</option>
+        <option>Plava</option>
+        <option>Zelena</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="opis">Opis proizvoda: </label>
+      <textarea class="form-control" id="opis" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputFile">Slika: </label>
+      <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">Ovdje ide glavna slika.</small>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Dodaj proizvod</button>
+  </form>
+
+
+
+
+</div>
+
+
+<style>
+
+select, option{
+  padding: 0px !important;
+}
+
+
+form{
+  width: 30%;
+  margin-bottom: 20%;
+  margin-top: 10%;
+}
+
+</style>
+
+-->
