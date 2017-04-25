@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img_1: MyString
+  img2_string: MyString
+  img_3: MyString
+  img_4: MyString
+  product: one
+
+two:
+  img_1: MyString
+  img2_string: MyString
+  img_3: MyString
+  img_4: MyString
+  product: two

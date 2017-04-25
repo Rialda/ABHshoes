@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   end
 
   def category_page
+    @products=Product.all
+    @images=Image.all
   end
 
   def product_details

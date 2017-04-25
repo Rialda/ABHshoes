@@ -95,86 +95,16 @@
   </div>
 
 <div class="col-md-9">
+
+  <% for @i in @images %>
     <div class="col-md-3 thumb">
         <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
+            <img class=" img-responsive shoe_images" src="<%= @i.img_1%>" title="<%= @products.name %>">
         </a>
     </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="http://placehold.it/250x200" alt="">
-        </a>
-    </div>
+  <% end %>
+
+
   </div>
 </div>
 

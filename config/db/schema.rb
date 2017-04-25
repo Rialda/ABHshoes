@@ -10,43 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425114634) do
+ActiveRecord::Schema.define(version: 20170425081138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "brands", force: :cascade do |t|
-    t.string   "brand_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "category_name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "colors", force: :cascade do |t|
-    t.string   "color_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", force: :cascade do |t|
     t.string   "img_1"
-    t.string   "img2_string"
+    t.string   "img_2"
     t.string   "img_3"
     t.string   "img_4"
     t.integer  "product_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
     t.string   "name",                null: false
+    t.string   "brand",               null: false
     t.string   "size"
+    t.string   "color"
+    t.string   "style"
+    t.string   "category",            null: false
     t.decimal  "price",               null: false
     t.integer  "num_of_products"
     t.datetime "created_at",          null: false
@@ -55,21 +41,7 @@ ActiveRecord::Schema.define(version: 20170425114634) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "brand_id"
-    t.integer  "color_id"
-    t.integer  "style_id"
-    t.integer  "category_id"
-    t.string   "imgurl"
-    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
-    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["color_id"], name: "index_products_on_color_id", using: :btree
-    t.index ["style_id"], name: "index_products_on_style_id", using: :btree
-  end
-
-  create_table "styles", force: :cascade do |t|
-    t.string   "style_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "imgulr"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,8 +64,4 @@ ActiveRecord::Schema.define(version: 20170425114634) do
   end
 
   add_foreign_key "images", "products"
-  add_foreign_key "products", "brands"
-  add_foreign_key "products", "categories"
-  add_foreign_key "products", "colors"
-  add_foreign_key "products", "styles"
 end
