@@ -29,8 +29,8 @@
     <div class="cijena">
       <label for="sel1" class="label1">Cijena:</label>
       <select id="cijena">
-        <option value="volvo">Od vece ka manjoj</option>
-        <option value="saab">Od manje ka vecoj</option>
+        <option value="volvo"><% Product.order("price ASC").all %> Od vece ka manjoj</option>
+        <option value="saab">Od manje ka vecoj<% Product.order("price DESC").all %></option>
       </select>
     </div>
     </div>
@@ -97,15 +97,20 @@
 <div class="col-md-9">
 
   <% for @i in @images %>
-    <div class="col-md-3 thumb">
-        <a class=" " href="#">
-            <img class=" img-responsive shoe_images" src="<%= @i.img_1%>" title="<%= @products.name %>">
-        </a>
+    <% @p=Product.find_by_id(@i.id)%>
+    <% @col_img=Color.find_by_id(@p.id)%>
+
+    <div class="col-md-3">
+        <%= link_to image_tag(@i.img_1, :class=>"img-responsive shoe_images imgs"), method: :put %>
+        <p><%= @p.name %></p> <br/>
+        <p id="cijena_proizvoda">$<%= @p.price %></p>
+        <img id="boja_proizvoda" src="<%= @col_img.color_img %>" title="<%= @col_img.color_name %>" />
     </div>
   <% end %>
 
 
   </div>
+
 </div>
 
 
@@ -151,7 +156,7 @@
   color: black !important;
 }
 .shoe_images{
-  margin-bottom: 100px !important;
+  margin-bottom: 5px !important;
   margin-right: 0px !important;
 }
 .label1{
@@ -184,7 +189,14 @@ select option{
 .form-control{
   padding-bottom: 1px !important;
   padding-top: 2px !important;
+}
+.imgs{
+  height: 135px;
+  width: 180px;
+}
 
-
+#boja_proizvoda{
+height: 10px;
+width: 10px;
 }
 </style>

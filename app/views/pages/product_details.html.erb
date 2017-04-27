@@ -2,20 +2,24 @@
   <div class="row row1"> <!-- begin row 1 -->
 
     <div class="col-md-6"> <!-- begin col md 6 - 1 -->
+      <% for @i in @images %>
+        <% @p=Product.find_by_id(@i.id)%>
+        <% @col_img=Color.find_by_id(@p.id)%>
 
               <a class="main_image" href="#">
-                  <img class="img-responsive" src="http://placehold.it/400x355" alt="">
+                  <img class="img-responsive" src="<%=@i.img_1 %>" alt="">
               </a>
 
               <a class="other_images" href="#">
-                  <img class=" img-responsive" src="http://placehold.it/115x115" alt="">
+                  <img class=" img-responsive" src="<%=@i.img2_string %>" alt="">
               </a>
               <a class="other_images other_images_centered" href="#">
-                  <img class=" img-responsive" src="http://placehold.it/115x115" alt="">
+                  <img class=" img-responsive" src="<%=@i.img_3 %>" alt="">
               </a>
               <a class="other_images" href="#">
-                  <img class=" img-responsive" src="http://placehold.it/115x115" alt="">
+                  <img class=" img-responsive" src="<%=@i.img_4 %>" alt="">
               </a>
+          <% end %>
 
 
 
@@ -23,7 +27,9 @@
 
 
     <div class="col-md-6 second_column"> <!-- begin col md 6 - 2 -->
-      <h4>Name of the selected shoes</h4>
+      <% for @i in @images %>
+        <% @p=Product.find_by_id(@i.id)%>
+      <h4><%= @p.name %></h4>
       </br>
     <p>  Description of the selected shoes Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at scelerisque felis. Aenean eu lectus ut dui fringilla consequat a ut odio. In porta diam euismod volutpat rutrum. Cras maximus at dui in lacinia. </p>
       </br>
@@ -50,9 +56,8 @@
       </div>
 <a href="#" class="korpa_button">DODAJ U KORPU</a>
 <a href="#" class="kupi_button">KUPI ODMAH</a>
-
     </div> <!-- end col md 6 -2 -->
-
+    <%end%>
   </div> <!-- end row 1 -->
 
 
@@ -164,8 +169,12 @@ select option{
 }
 .main_image{
   float:left;
+  width: 400px;
+  height: 355px;
 }
 .other_images{
+  width: 115px;
+  height: 115px;
   float: right;
 }
 .other_images_centered{

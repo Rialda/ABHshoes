@@ -54,3 +54,4 @@ iv = Image.create(img_1: 'http://www.runnersworld.com/sites/runnersworld.com/fil
 
 
 vi = Image.create(img_1: 'http://i.ebayimg.com/images/g/DJQAAOSwA3dYR1~m/s-l500.jpg', img2_string: 'http://i.ebayimg.com/images/g/DJQAAOSwA3dYR1~m/s-l500.jpg', img_3: 'http://i.ebayimg.com/images/g/DJQAAOSwA3dYR1~m/s-l500.jpg', img_4:'http://i.ebayimg.com/images/g/DJQAAOSwA3dYR1~m/s-l500.jpg', product_id: 5)
+
