@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, :products, :images
+  devise_for :users
+  resources :products, :images
 
   root 'pages#index'
 
   get 'pages/home' => 'pages#home'
   get 'pages/category_page' => 'pages#category_page'
 
-  get '/product_details/:id' => 'pages#product_details'
-  get '/product/:id' => 'pages#product_details'
-  put '/product_details/:id' => 'pages#product_details'
+  #get '/product_details/:id' => 'pages#product_details'
+  #get '/product/:id' => 'pages#product_details'
+  #put '/product_details/:id' => 'pages#product_details'
 
 
 

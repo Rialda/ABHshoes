@@ -34,7 +34,7 @@ b5 = Brand.create(brand_name: 'brand5')
 
 c1 = Category.create(category_name: 'category1')
 c2 = Category.create(category_name: 'category2')
-c3 = Category.create(category_name: 'category3')
+c3 = Category.create(category_name: 'category3') 
 c4 = Category.create(category_name: 'category4')
 
 p1 = Product.create(name: 'Product1 Shoe Name', size: '38', price: 45.99, num_of_products: 120, brand_id: 1, color_id: [1,2,12,4], style_id: 1, category_id: 1)
