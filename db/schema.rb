@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427094347) do
+ActiveRecord::Schema.define(version: 20170428114610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20170427094347) do
     t.string   "brand_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.float    "total_price"
+    t.integer  "total_num"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.index ["product_id"], name: "index_carts_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -45,6 +56,26 @@ ActiveRecord::Schema.define(version: 20170427094347) do
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price"
+    t.integer  "quantity"
+    t.decimal  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal"
+    t.decimal  "shipping"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name",                null: false
     t.string   "size"
@@ -61,10 +92,19 @@ ActiveRecord::Schema.define(version: 20170427094347) do
     t.integer  "style_id"
     t.integer  "category_id"
     t.string   "imgurl"
+    t.integer  "size_id"
+    t.text     "description"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["color_id"], name: "index_products_on_color_id", using: :btree
+    t.index ["size_id"], name: "index_products_on_size_id", using: :btree
     t.index ["style_id"], name: "index_products_on_style_id", using: :btree
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.integer  "product_size"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "styles", force: :cascade do |t|
@@ -92,9 +132,14 @@ ActiveRecord::Schema.define(version: 20170427094347) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "carts", "products"
+  add_foreign_key "carts", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "colors"
+  add_foreign_key "products", "sizes"
   add_foreign_key "products", "styles"
 end

@@ -34,14 +34,21 @@ b5 = Brand.create(brand_name: 'brand5')
 
 c1 = Category.create(category_name: 'category1')
 c2 = Category.create(category_name: 'category2')
-c3 = Category.create(category_name: 'category3') 
+c3 = Category.create(category_name: 'category3')
 c4 = Category.create(category_name: 'category4')
 
-p1 = Product.create(name: 'Product1 Shoe Name', size: '38', price: 45.99, num_of_products: 120, brand_id: 1, color_id: [1,2,12,4], style_id: 1, category_id: 1)
-p2 = Product.create(name: 'Product2 Shoe Name', size: '39', price: 5.99, num_of_products: 100, brand_id: 2, color_id: [2,3,8], style_id: 2, category_id: 2)
-p3 = Product.create(name: 'Product3 Shoe Name', size: '37', price: 55.99, num_of_products: 200, brand_id: 3, color_id: [11,10,8,1], style_id: 3, category_id: 3)
-p4 = Product.create(name: 'Product4 Shoe Name', size: '40', price: 50.99, num_of_products: 50, brand_id: 4, color_id: [2,3], style_id: 4, category_id: 2)
-p5 = Product.create(name: 'Product5 Shoe Name', size: '37', price: 40.99, num_of_products: 20, brand_id: 5, color_id: [4,5,6,12], style_id: 5, category_id: 4)
+sz1 = Size.create(product_size: 37)
+sz2 = Size.create(product_size: 38)
+sz3 = Size.create(product_size: 39)
+sz4 = Size.create(product_size: 40)
+sz5 = Size.create(product_size: 41)
+
+p1 = Product.create(name: 'Product1 Shoe Name', size_id: 1, price: 45.99, num_of_products: 120, brand_id: 1, color_id: [1,2,12,4], style_id: 1, category_id: 1, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
+p2 = Product.create(name: 'Product2 Shoe Name', size_id: 2, price: 5.99, num_of_products: 100, brand_id: 2, color_id: [2,3,8], style_id: 2, category_id: 2, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
+p3 = Product.create(name: 'Product3 Shoe Name', size_id: 3, price: 55.99, num_of_products: 200, brand_id: 3, color_id: [11,10,8,1], style_id: 3, category_id: 3, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
+p4 = Product.create(name: 'Product4 Shoe Name', size_id: 4, price: 50.99, num_of_products: 50, brand_id: 4, color_id: [2,3], style_id: 4, category_id: 2, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
+p5 = Product.create(name: 'Product5 Shoe Name', size_id: 5, price: 40.99, num_of_products: 20, brand_id: 5, color_id: [4,5,6,12], style_id: 5, category_id: 4, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
+
 
 i = Image.create(img_1: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img2_string: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img_3: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img_4:'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', product_id: 3)
 

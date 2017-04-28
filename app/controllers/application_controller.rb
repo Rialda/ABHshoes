@@ -16,4 +16,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) do |u| u.permit(:username, :password, :password_confirmation, :current_password) end
   end
 
+ helper_method :current_order
+
+ def current_order
+   if !session[:order_id].nil?
+     Order.find(session[:order_id])
+   else
+     Order.new
+   end
+ end
+
 end

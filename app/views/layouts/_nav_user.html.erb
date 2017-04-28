@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
+
+    <%= csrf_meta_tags %>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -40,9 +49,24 @@ ul li a, a{
 
 ul.dropdown-menu {
     background-color: black;
+
 }
 
+#cart_img{
+height:28px;
+width:28px;
+}
 
+.num_items{
+background-color: red;
+padding: 1px;
+display: inline-flex;
+width: 400%;
+height: 50%;
+font-size: 18px;
+border: 2px solid red;
+border-radius: 20px;
+}
 
 </style>
 
@@ -81,8 +105,7 @@ ul.dropdown-menu {
         </li>
 
         <li><a href="#">| </a></li>
-        <li><a href="#"><img src="http://www.freeiconspng.com/uploads/basket-cart-icon-27.png" style="height:20px; width:20px;" /></a></li>
-
+      <%= link_to (image_tag('http://szemuveglencse.hu/wp-content/regoptika/shopingbasket.png', :id=>"cart_img")), cart_path %><div class="num_items"> <%= @num_of_items %></div>
 
       </ul>
     </div>

@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+resources :products
+resource :cart
+resources :order_items
+
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   devise_for :users
   resources :products, :images
 
@@ -15,6 +28,10 @@ Rails.application.routes.draw do
 
   get 'pages/user_profile' => 'pages#user_profile'
   get 'pages/admin_dashboard' => 'pages#admin_dashboard'
+  get 'order_items/order' => 'order_items#order'
+  get 'carts/show' => 'carts#show'
+
+
 
 
 
