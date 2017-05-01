@@ -1,5 +1,4 @@
 class OrderItemsController < ApplicationController
-
   def show
     @order_items =order_items.all
   end

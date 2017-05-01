@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   def index
     @products=Product.all
     @images=Image.all
-    @order_items = current_order.order_items
-    @num_of_items=current_order.order_items.size
+  #  @order_items = current_order.order_items
+  #  @num_of_items=current_order.order_items.size
   end
 
   def home
@@ -37,5 +37,6 @@ class PagesController < ApplicationController
 
   def admin_dashboard
   end
+
 
 end

@@ -92,8 +92,7 @@ border-radius: 20px;
 
 
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.username %>
-            <span class="caret"></span></button>
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.username %></span></button>
             <ul class="dropdown-menu">
               <li><a href="#"><%= link_to('Edit Profile', edit_user_registration_path) %></a></li>
               <li><a href="#">...</a></li>
@@ -132,4 +131,11 @@ border-radius: 20px;
     }
 });
 
+</script>
+<script src="content/js/jquery.min.js"></script>
+<script src="content/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
 </script>
