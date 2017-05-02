@@ -1,0 +1,27 @@
+<div class="velicina_kolicina">
+  <div class="filters">
+      <%= form_for @order_item, remote: true do |f| %>
+      <span id="velicina_tag">
+        <label for="sel2">Velicina:</label>
+        <select class="form-control" id="sel2">
+          <option>Sve velicine</option>
+          <option>...</option>
+        </select>
+      </span>
+        <div class="input-group"><br/>
+          <span id="kolicina_tag">
+            <label for="sel3">Kolicina:</label><br/>
+          <%= f.number_field :quantity, value: 1, class: "form-control", id: "sel3", min: 1 %>
+        </span><br/><br/><br/>  </div>
+
+          <div class="input-group-btn">
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.submit "Dodaj u korpu", class: "korpa_button" %>
+        <span class="kupi_button" ><%= link_to "KUPI ODMAH", cart_path(@user_id) %></span>
+          </div>
+      <% end %>
+
+  </div>
+
+</div>

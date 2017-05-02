@@ -30,33 +30,8 @@
     <p> <%= @product.description %> </p>
 
 </br></br>
-      <div class="velicina_kolicina">
-        <div class="filters">
+<%= render 'buyaddbuttons' %>
 
-            <%= form_for @order_item, remote: true do |f| %>
-            <span id="velicina_tag">
-              <label for="sel2">Velicina:</label>
-              <select class="form-control" id="sel2">
-                <option>Sve velicine</option>
-                <option>...</option>
-              </select>
-            </span>
-              <div class="input-group"><br/>
-                <span id="kolicina_tag">
-                  <label for="sel3">Kolicina:</label><br/>
-                <%= f.number_field :quantity, value: 1, class: "form-control", id: "sel3", min: 1 %>
-              </span><br/><br/><br/>  </div>
-                <div class="input-group-btn">
-                  <%= f.hidden_field :product_id, value: @product.id %>
-                  <%= f.submit "Dodaj u korpu", class: "korpa_button" %>
-                  <a href="#" class="kupi_button">KUPI ODMAH</a>
-
-                </div>
-
-            <% end %>
-        </div>
-
-      </div>
 
     </div> <!-- end col md 6 -2 -->
   </div> <!-- end row 1 -->

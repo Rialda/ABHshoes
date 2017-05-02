@@ -10,10 +10,10 @@
 
   <body>
 
-    <% if @differentindex %>
-    <%= render '/layouts/navindex' %>
-    <% else %>
+    <% if !@differentindex %>
     <%= render '/layouts/nav' %>
+    <% else %>
+    <%= render '/layouts/navindex' %>
     <% end %>
 
 

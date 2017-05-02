@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     @images=Image.all
   #  @order_items = current_order.order_items
   #  @num_of_items=current_order.order_items.size
+  @order_items = current_order.order_items
+  @num_of_items=current_order.order_items.size
+#  @order_item = current_order.order_items.new
 @differentindex=true
   end
 
@@ -16,6 +19,10 @@ class PagesController < ApplicationController
     @products=Product.all
     @images=Image.all
     @product = Product.new
+    @order_items = current_order.order_items
+    @num_of_items=current_order.order_items.size
+    @order_item = current_order.order_items.new
+    @order_item_uid=OrderItem.where(:user_id => current_user.id)
     # @order_items = current_order.order_items
     # @num_of_items=current_order.order_items.size
   end
