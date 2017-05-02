@@ -1,6 +1,7 @@
 class OrderItemsController < ApplicationController
   def show
     @order_items =order_items.all
+    @images=Image.find_by_id(@product)
   end
 
   def create

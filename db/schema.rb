@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+  # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501120848) do
+ActiveRecord::Schema.define(version: 20170501152329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20170501120848) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "product_id"
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_carts_on_image_id", using: :btree
     t.index ["product_id"], name: "index_carts_on_product_id", using: :btree
     t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
   end
@@ -69,6 +71,8 @@ ActiveRecord::Schema.define(version: 20170501120848) do
     t.decimal  "total_price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_order_items_on_image_id", using: :btree
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
   end
@@ -155,9 +159,11 @@ ActiveRecord::Schema.define(version: 20170501120848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "carts", "images"
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "order_items", "images"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"

@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_one :image
+has_one :image
 #serialize :color_id, Array
 #has_many :order_items
 has_many :product_colors

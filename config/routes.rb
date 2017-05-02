@@ -28,6 +28,8 @@ resources :order_items
 
   get 'pages/user_profile' => 'pages#user_profile'
   get 'pages/admin_dashboard' => 'pages#admin_dashboard'
+  get 'pages/incart' => 'pages#incart'
+
   get 'order_items/order' => 'order_items#order'
   get 'carts/show' => 'carts#show'
 

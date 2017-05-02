@@ -25,5 +25,8 @@ class ApplicationController < ActionController::Base
         Order.new
       end
     end
+def differentindex
+@differentindex=true
+end
 
 end

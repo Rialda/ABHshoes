@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
+  before_filter :differentindex, only: [:index]
+
   def index
     @products=Product.all
     @images=Image.all
   #  @order_items = current_order.order_items
   #  @num_of_items=current_order.order_items.size
+@differentindex=true
   end
 
   def home
@@ -13,8 +16,8 @@ class PagesController < ApplicationController
     @products=Product.all
     @images=Image.all
     @product = Product.new
-    @order_items = current_order.order_items
-    @num_of_items=current_order.order_items.size
+    # @order_items = current_order.order_items
+    # @num_of_items=current_order.order_items.size
   end
 
   def show
@@ -36,6 +39,8 @@ class PagesController < ApplicationController
   end
 
   def admin_dashboard
+  end
+  def incart
   end
 
 

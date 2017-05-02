@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<style>
+ul li a, a{
+  color: white !important;
+  font-weight: bold;
+}
+
+.banner
+{
+  background:black;
+  height:60px;
+}
+.banner .row
+{
+  text-align:center;
+  margin-top:50px;
+}
+.banner
+{
+  height: 60px;
+}
+
+
+ul.dropdown-menu {
+    background-color: black;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
+  </button>
+      <a class="navbar-brand" href="#">ABHshoes</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="nav navbar-left">
+        <li><a href="#">Category 1</a></li>
+        <li><a href="#">Muska obuca</a></li>
+        <li><a href="#">Djecija obuca</a></li>
+        <li><a href="#">Sportska obuca</a></li>
+      </ul>
+
+      <ul class="nav navbar-right">
+        <li><%= link_to('Log in', new_user_session_path) %></li>
+         <li><a href="#">|</a></li>
+        <li><%= link_to('Register', new_user_registration_path) %></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+<section class="banner">
+<div class="container">
+
+  </div>
+  </section>
+</body>
+</html>
+
+<script>
+
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
+    {
+        $('.opaque-navbar').addClass('opaque');
+    } else {
+        $('.opaque-navbar').removeClass('opaque');
+    }
+});
+
+</script>

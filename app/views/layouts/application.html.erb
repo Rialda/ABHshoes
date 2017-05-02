@@ -9,7 +9,15 @@
   </head>
 
   <body>
+
+    <% if @differentindex %>
+    <%= render '/layouts/navindex' %>
+    <% else %>
     <%= render '/layouts/nav' %>
+    <% end %>
+
+
+
     <div class="container">
       <span class="notice"><%= notice %></span>
       <span class="alert"><%= alert %></span>

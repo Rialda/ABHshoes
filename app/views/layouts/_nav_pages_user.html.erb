@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
+
+    <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<style>
+ul li a, a{
+  color: white !important;
+  font-weight: bold;
+}
+
+.banner
+{
+  background:black;
+}
+.banner .row
+{
+  text-align:center;
+  margin-top:50px;
+}
+.banner
+{
+  height: 60px;
+}
+
+
+ul.dropdown-menu {
+    background-color: black;
+
+}
+
+#cart_img{
+height:28px;
+width:28px;
+}
+
+.num_items{
+background-color: red;
+padding: 1px;
+display: inline-flex;
+width: 400%;
+height: 50%;
+font-size: 18px;
+border: 2px solid red;
+border-radius: 20px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
+  </button>
+      <a class="navbar-brand" href="#">ABHshoes</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="nav navbar-left">
+        <li><a href="#">Category 1</a></li>
+        <li><a href="#">Muska obuca</a></li>
+        <li><a href="#">Djecija obuca</a></li>
+        <li><a href="#">Sportska obuca</a></li>
+      </ul>
+            <ul class="nav navbar-right">
+        <li>
+
+
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.username %></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to('Edit Profile', edit_user_registration_path) %></a></li>
+              <li><a href="#">...</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></a></li>
+            </ul>
+          </div>
+
+        </li>
+
+        <li><a href="#">| </a></li>
+      <%= link_to (image_tag('http://szemuveglencse.hu/wp-content/regoptika/shopingbasket.png', :id=>"cart_img", :class=>"cart-text")), cart_path %><div class="num_items"> <%= @num_of_items %></div>
+
+      </ul>
+    </div>
+  </div>
+</div>
+<section class="banner">
+<div class="container">
+  <div class="row">
+  <!-- here goes that background photo -->
+  </div>
+  </div>
+  </section>
+</body>
+</html>
+
+<script>
+
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
+    {
+        $('.opaque-navbar').addClass('opaque');
+    } else {
+        $('.opaque-navbar').removeClass('opaque');
+    }
+});
+
+</script>
+<script src="content/js/jquery.min.js"></script>
+<script src="content/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
