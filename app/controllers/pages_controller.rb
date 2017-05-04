@@ -4,12 +4,17 @@ class PagesController < ApplicationController
   def index
     @products=Product.all
     @images=Image.all
-  #  @order_items = current_order.order_items
-  #  @num_of_items=current_order.order_items.size
-  @order_items = current_order.order_items
-  @num_of_items=current_order.order_items.size
-#  @order_item = current_order.order_items.new
+    @product = Product.new
+    @order_items = current_order.order_items
+    @num_of_items=current_order.order_items.size
+    # @order_item = current_order.order_items.new
+    @brands=Brand.all
+    @sizes=Size.all
+    @styles=Style.all
+    @colors=Color.all
+    @categories=Category.all
 @differentindex=true
+
   end
 
   def home
@@ -22,15 +27,29 @@ class PagesController < ApplicationController
     @order_items = current_order.order_items
     @num_of_items=current_order.order_items.size
     @order_item = current_order.order_items.new
-    @order_item_uid=OrderItem.where(:user_id => current_user.id)
+    @brands=Brand.all
+    @sizes=Size.all
+    @styles=Style.all
+    @colors=Color.all
+    @categories=Category.all
+
+  #  @order_item_uid=OrderItem.where(:user_id => current_user.id)
     # @order_items = current_order.order_items
     # @num_of_items=current_order.order_items.size
   end
 
   def show
+    @products = Product.where(:category_id => params[:category_id])
     @product= Product.find(params[:id])
     @order_items = current_order.order_items
     @num_of_items=current_order.order_items.size
+    @brands=Brand.all
+    @sizes=Size.all
+    @styles=Style.all
+    @colors=Color.all
+    @categories=Category.all
+
+
   end
 
   def product_details

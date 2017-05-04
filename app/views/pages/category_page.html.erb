@@ -29,12 +29,11 @@
     <div class="cijena">
       <label for="sel1" class="label1">Cijena:</label>
       <select id="cijena">
-        <option value="volvo"><% Product.order("price ASC").all %> Od vece ka manjoj</option>
-        <option value="saab">Od manje ka vecoj<% Product.order("price DESC").all %></option>
+        <option value="<%= Product.order(:price) %>">Od vece ka manjoj</option>
+        <option value="product.price_DESC=1">Od manje ka vecoj</option>
       </select>
     </div>
     </div>
-
 
   </div>
 
@@ -52,42 +51,47 @@
     <div class="filters">
       <label for="sel2">Brend:</label>
       <select class="form-control" id="sel2">
-        <option>Svi brendovi</option>
-        <option>VANS</option>
-        <option>...</option>
+        <% for @b in @brands %>
+        <option><%= @b.brand_name %></option>
+            <% end %>
       </select>
+
     </div>
 
     <div class="filters">
       <label for="sel2">Velicina:</label>
       <select class="form-control" id="sel2">
-        <option>Sve velicine</option>
-        <option>...</option>
+        <% for @sz in @sizes %>
+        <option><%= @sz.product_size %></option>
+        <% end %>
       </select>
     </div>
 
     <div class="filters">
       <label for="sel2">Boja:</label>
       <select class="form-control" id="sel2">
-        <option>Sve boje</option>
-        <option>...</option>
+        <% for @cl in @colors %>
+        <option> <%= @cl.color_name %></option>
+        <% end %>
       </select>
     </div>
 
     <div class="filters">
       <label for="sel2">Stil:</label>
       <select class="form-control" id="sel2">
-        <option>Svi stilovi</option>
-        <option>...</option>
-
+        <% for @ss in @styles %>
+        <option><%= @ss.style_name %></option>
+        <% end %>
       </select>
     </div>
 
     <div class="filters">
       <label for="sel2">Cijena:</label>
       <select class="form-control" id="sel2">
-        <option>Sve cijene</option>
-        <option>...</option>
+        <option><%= link_to '5-41', @products_path, price_min: 5, price_max: 41 %></option>
+        <option><%= link_to '41-46', @products_path, price_min: 41, price_max: 46 %></option>
+        <option><%= link_to '46-50', @products_path, price_min: 46, price_max: 50 %></option>
+
 
       </select>
     </div>
@@ -99,12 +103,16 @@
   <% for @i in @images %>
     <% @p=Product.find_by_id(@i.id)%>
     <% @col_img=Color.find_by_id(@p.id)%>
+    <% @pcol= Product.find(@p).colors %>
+    <% @pcolurl= Color.find_by_id(@pcol) %>
 
     <div class="col-md-3">
         <%= link_to image_tag(@i.img_1, :class=>"img-responsive shoe_images imgs"), product_path(@p)%>
         <p><%= @p.name %></p> <br/>
         <p id="cijena_proizvoda">$<%= @p.price %></p>
-        <img id="boja_proizvoda" src="<%= @col_img.color_img %>" title="<%= @col_img.color_name %>" />
+        <% for @pc in @pcol %>
+        <img id="boja_proizvoda" src="<%= @pc.color_img %>" title="<%= @pc.color_name %>" />
+        <% end %>
     </div>
   <% end %>
 

@@ -70,10 +70,11 @@ border-radius: 20px;
     </div>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="nav navbar-left">
-        <li><a href="#">Category 1</a></li>
-        <li><a href="#">Muska obuca</a></li>
-        <li><a href="#">Djecija obuca</a></li>
-        <li><a href="#">Sportska obuca</a></li>
+        <% for @c in @categories %>
+        <% @cid=Category.find_by_id(@c) %>
+        <% @cname=Category.find_by_category_name(@c) %>
+        <li><%= link_to(category_path(@cid)) do %><strong><%= @c.category_name %></strong><% end %></li>
+        <% end %>
       </ul>
             <ul class="nav navbar-right">
         <li>

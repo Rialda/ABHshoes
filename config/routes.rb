@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 resources :products
 resource :cart
 resources :order_items
+resources :category
+
 
   get 'order_items/create'
 
@@ -29,7 +31,7 @@ resources :order_items
   get 'pages/user_profile' => 'pages#user_profile'
   get 'pages/admin_dashboard' => 'pages#admin_dashboard'
   get 'pages/incart' => 'pages#incart'
-  # 
+  #
   # get 'order_items/order' => 'order_items#order'
   # get 'carts/show' => 'carts#show'
 
