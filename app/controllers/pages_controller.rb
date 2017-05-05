@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   before_filter :differentindex, only: [:index]
 
   def index
-    @products=Product.all
-    @images=Image.all
+    @products=Product.all.paginate(page: params[:page], per_page: 8)
+    @images=Image.all.paginate(page: params[:page], per_page: 8)
     @product = Product.new
     @order_items = current_order.order_items
     @num_of_items=current_order.order_items.size

@@ -125,25 +125,7 @@
     <div class="row ">
       <div class="col-md-6 offset-md-3">
         <center>
-        <nav aria-label="Pages">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true" class="pages">&laquo;</span>
-                <span class="sr-only pages">Previous</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link pages" href="#">1</a></li>
-            <li class="page-item"><a class="page-link pages" href="#">2</a></li>
-            <li class="page-item"><a class="page-link pages" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true" class="pages">&raquo;</span>
-                <span class="sr-only pages">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+          <%= will_paginate @images, previous_label: "Nazad", next_label:"Naprijed"  %>
       </center>
       </div>
     </div>
@@ -160,6 +142,9 @@
     </div>
 
     <style>
+    center a{
+      color: black !important;
+    }
     .pages{
       color: black !important;
     }

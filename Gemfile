@@ -18,7 +18,7 @@ gem 'has_scope'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'filterrific'
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'pg'
 #gem 'sqlite3'
 gem 'taps'

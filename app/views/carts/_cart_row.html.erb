@@ -31,6 +31,14 @@
       <% end %>
   </div>
 
+  <div class="row ">
+    <div class="col-md-6 offset-md-3">
+      <center>
+        <%= will_paginate @order_items, previous_label: "Nazad", next_label:"Naprijed" %>
+    </center>
+    </div>
+  </div>
+
 
 <style>
 #udesno{

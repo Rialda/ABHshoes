@@ -22,10 +22,16 @@ ul li a, a{
   color: white !important;
   font-weight: bold;
 }
+ul li, a:hover{
+  color: black !important;
+  background-color: background-color: rgba(0,0,0,0.0) !important;
+}
 
 .banner
 {
   background-image: url(backf.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height:200px;
 }
 .banner .row
@@ -38,7 +44,7 @@ ul li a, a{
   height: 500px;
 }
 .opaque-navbar {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2);
   /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
     height: 60px;
     border-bottom: 0px;
@@ -99,7 +105,6 @@ border-radius: 20px;
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.username %></span></button>
             <ul class="dropdown-menu">
               <li><a href="#"><%= link_to('Edit Profile', edit_user_registration_path) %></a></li>
-              <li><a href="#">...</a></li>
               <li class="divider"></li>
               <li><a href="#"><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></a></li>
             </ul>

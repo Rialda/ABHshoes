@@ -3,7 +3,7 @@ class CartsController < ApplicationController
 
   def show
      @order_items = current_order.order_items
-    # @order_items=OrderItem.all
+    @order_items=OrderItem.all.paginate(page: params[:page], per_page: 8)
     @order_itemss=OrderItem.where(:user_id => current_user.id)
     @uid=User.find_by_id(current_user)
     @num_of_items=@order_itemss.to_a.size
