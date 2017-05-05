@@ -2,14 +2,12 @@ class CategoryController < ApplicationController
   def index
   end
   def show
-    @category = Category.find(params[:id])
-    @cat_id=Category.find(params[:id])
-    if params[@cat_id]
-    @p = Product.where(:category_id => params[@cat_id])
-    else
-    @p = Product.all
-    end
-    @p = Product.where("category_id = ?", params[:category])
+  #  if params[:category_name]
+       @products = Product.where(:category_id => params[:category_id])
+    #  else
+    #    @products = Product.all
+    #  end
+    #@p = Product.where("category_id = ?", params[:category])
 
       @images=Image.all
       @order_items = current_order.order_items
@@ -20,5 +18,10 @@ class CategoryController < ApplicationController
       @styles=Style.all
       @colors=Color.all
       @categories=Category.all
+
   end
+
+
+
+
 end

@@ -101,7 +101,8 @@
 
 
   <div class="col-md-9">
-    <% for @i in @images %>
+    <% for @pre in Product.where(:category_id=> params[:id]) %>
+    <% @i=Image.find_by_id(@pre.id) %>
       <% @p=Product.find_by_id(@i.id)%>
       <% @col_img=Color.find_by_id(@p.id)%>
       <% @pcol= Product.find(@p).colors %>
@@ -116,7 +117,6 @@
 
       </div>
     <% end %>
-
 
     </div>
       </div>

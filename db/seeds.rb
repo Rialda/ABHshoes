@@ -71,6 +71,10 @@ p4 = Product.create(name: 'Product4 Shoe Name', price: 50.99, num_of_products: 5
 p5 = Product.create(name: 'Product5 Shoe Name', price: 40.99, num_of_products: 20, brand_id: 5, imgurl:'http://i.ebayimg.com/images/g/DJQAAOSwA3dYR1~m/s-l500.jpg', style_id: 5, category_id: 4, description: 'Here is the description of a product... Lorem ipsum dolor sit amet...')
 
 
+
+
+
+
 # Image.delete_all
 
 i = Image.create(img_1: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img2_string: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img_3: 'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', img_4:'https://i1.adis.ws/i/jpl/jd_083278_spin_01?qlt=80&w=920&h=652&v=1', product_id: 3)

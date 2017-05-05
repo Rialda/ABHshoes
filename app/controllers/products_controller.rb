@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
   @colors=Color.all
   @categories=Category.all
 
-
   end
 
 

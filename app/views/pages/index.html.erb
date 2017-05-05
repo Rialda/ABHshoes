@@ -5,13 +5,13 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
 
-      <center><br/><br/>  <h5> Featured Products </h5> </center>
+      <center><br/><br/><h5> Featured Products </h5> </center>
       <center>
         <div class="btn-group">
 
   <select class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
       <% for @b in @brands %>
-      <option class="caret"><%= @b.brand_name %></option>
+      <option class="caret">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @b.brand_name %></option>
           <% end %>
   </select>
 </div>
