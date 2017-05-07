@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pages
 resources :products
 resource :cart
 resources :order_items
@@ -31,6 +32,9 @@ resources :category
   get 'pages/user_profile' => 'pages#user_profile'
   get 'pages/admin_dashboard' => 'pages#admin_dashboard'
   get 'pages/incart' => 'pages#incart'
+  get 'carts/addresses' => 'carts/addresses', as: 'addresses'
+  get 'carts/payment' => 'carts/payment', as: 'payment'
+
   #
   # get 'order_items/order' => 'order_items#order'
   # get 'carts/show' => 'carts#show'

@@ -1,14 +1,14 @@
-
   <div class="row prozivodi">
+
       <%= form_for order_item, remote: true do |f| %>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
 
         <img class="img-responsive slikica" src="<%= product.imgurl %>" alt="">
       </div>
 
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <br/> <br/>
         <p> Model: <%= product.name %></p>
         <p>  Velicina: <br/></p>
@@ -16,7 +16,7 @@
       </div>
 
 
-      <div class="col-md-4 text-right">
+      <div class="col-md-3 text-right">
         <!-- <p class="text-right">Cijena: <span style="color: green"><%=order_item.unit_price %></span></p> -->
         <p class="">Cijena:<br/> <span style="color: black; font-weight: bold; font-size: 22px;"><%= order_item.total_price %></span></p>
 
@@ -29,7 +29,11 @@
           </div>
 
       <% end %>
+
+
   </div>
+
+
 
   <div class="row ">
     <div class="col-md-6 offset-md-3">
@@ -48,6 +52,7 @@ float: right !important;
   margin-top: 10px;
   margin-bottom: 30px;
 }
+
 
 .form-control{
   width: auto;

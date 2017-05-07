@@ -29,7 +29,7 @@
     <div class="cijena">
       <label for="sel1" class="label1">Cijena:</label>
       <select id="cijena">
-        <option value="<%= Product.order(:price) %>">Od vece ka manjoj</option>
+        <option value="<%= Product.order(:price) ASC %>">Od vece ka manjoj</option>
         <option value="product.price_DESC=1">Od manje ka vecoj</option>
       </select>
     </div>

@@ -9,4 +9,14 @@ class Order < ApplicationRecord
   def update_subtotal
     self[:subtotal] = subtotal
   end
+
+  def shipping
+    self[:shipping] = 30
+  end
+
+  def total
+    self[:total] = subtotal + shipping
+  end
+
+
 end

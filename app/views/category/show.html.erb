@@ -113,22 +113,23 @@
           <p id="cijena_proizvoda">$<%= @p.price %></p>
           <% for @pc in @pcol %>
           <img id="boja_proizvoda" src="<%= @pc.color_img %>" title="<%= @pc.color_name %>" />
-          <% end %>
+      <% end %>
 
       </div>
     <% end %>
 
     </div>
+
       </div>
 
 
-    <div class="row ">
-      <div class="col-md-6 offset-md-3">
-        <center>
-          <%= will_paginate @images, previous_label: "Nazad", next_label:"Naprijed"  %>
-      </center>
+      <div class="row ">
+        <div class="col-md-6 offset-md-3">
+          <center>
+            <%= will_paginate @products, previous_label: "Nazad", next_label:"Naprijed" %>
+        </center>
+        </div>
       </div>
-    </div>
 
     <!-- Footer -->
     <footer>

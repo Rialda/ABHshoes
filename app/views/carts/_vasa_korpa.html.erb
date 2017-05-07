@@ -1,0 +1,108 @@
+
+
+    <div class="kockica">
+    <strong> Narudzba </strong><span class="sivo dodatak"><%= @num_of_items %> proizvoda</span>
+    <div class="desno">
+    <p class="sivo">  Cijena: <br/></p> <span class="dodatak"><strong><%= @order_subtotal %>KM </strong></span>
+      <br/><br/>
+    <p class="sivo">  Dostava: <br/></p> <span class="dodatak"><strong> <%= @order_shipping %> KM </strong></span>
+      <br/>
+      <hr/>
+    <span class="sivo">Ukupno </span> <span class="dodatak"><strong> <%= @order_total %> KM  </strong></span>
+    </div>
+    </div>
+
+
+
+
+
+<style>
+.sivo{
+  color:gray;
+  font-weight: lighter;
+  font-size: 16px;
+}
+.dodatak{
+  font-size: 18px;
+}
+
+#korpa{
+  float: right;
+  height: auto;
+  width: 100%;
+}
+#dostava{
+  float: right;
+  height: auto;
+  width: 100%;
+}
+#dugmici{
+  float: right;
+  padding-top: 15px;
+}
+.kockica{
+  width: 350px;
+  height: auto;
+  border: 2px solid;
+  border-color: #404040;
+  padding: 20px;
+}
+.desno{
+text-align: right;
+}
+
+.odustani_btn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ffffff;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#363236 !important;
+	font-family:Verdana;
+	font-size:14px;
+	padding:11px 24px;
+	text-decoration:none;
+}
+.odustani_btn:hover {
+	background-color:#f6f6f6;
+  text-decoration:none;
+
+}
+.odustani_btn:active {
+	position:relative;
+	top:1px;
+}
+
+.nastavi_btn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color: #1a1a1a;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #363236;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:14px;
+	padding:11px 24px;
+	text-decoration:none;
+}
+.nastavi_btn:hover {
+	background-color:#575757;
+  text-decoration:none;
+  color:#ffffff !important;
+}
+.nastavi_btn:active {
+	position:relative;
+	top:1px;
+}
+
+</style>

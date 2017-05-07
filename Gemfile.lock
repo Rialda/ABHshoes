@@ -204,7 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   filterrific
-  has_scope
+  has_scope (~> 0.7.0)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

@@ -1,0 +1,55 @@
+<h3> Potvrda i placanje </h3>
+<br/>
+
+<div class="row">
+  <div class="col-md-offset-9">
+
+    <img src="/placanje.png" id="korpa" />
+
+    <br/><br/><br/>
+
+<%= render 'vasa_korpa' %>
+
+<div id="dugmici">
+  <span id="stripe">stripe  &nbsp;</span>
+  <span class="plati_btn"> <%= link_to(addresses_path)do %><strong> Plati <%= @order.total%></strong><%end %></span>
+</div>
+
+</div>
+</div>
+
+<style>
+#stripe{
+  font-weight: bolder;
+  color: #bfbfbf !important;
+  font-size: 16px;
+}
+.plati_btn {
+	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background-color:#518afc;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #035a8c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:14px;
+	padding:8px 39px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.plati_btn:hover {
+	background-color:#075dbf;
+  text-decoration:none;
+  color: white !important;
+}
+.plati_btn:active {
+	position:relative;
+	top:1px;
+}
+
+</style>

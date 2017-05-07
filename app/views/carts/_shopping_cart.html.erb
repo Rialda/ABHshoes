@@ -1,4 +1,19 @@
 
+<h3> Vasa korpa </h3>
+<br/>
+<div class="row">
+  <div class="col-md-offset-9">
+    <img src="korpa.png" id="korpa" />
+    <br/><br/><br/>
+<%= render 'vasa_korpa' %>
+<div id="dugmici">
+<%= link_to 'ODUSTANI', root_path, class:"odustani_btn" %>
+<%= link_to 'NASTAVI', addresses_path, class:"nastavi_btn" %>
+</div>
+</div>
+</div>
+
+<div class="u_korpi">
 <% if @order_itemss.size == 0 %>
   <p class="text-center">
     There are no items in your shopping cart.
@@ -8,3 +23,12 @@
     <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true, user_id: current_user.id %>
   <% end %>
 <% end %>
+</div>
+
+
+
+<style>
+.u_korpi{
+  margin-top: -300px;
+}
+</style>

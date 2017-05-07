@@ -3,6 +3,9 @@ class OrderItem < ApplicationRecord
   belongs_to :order
   has_one :image
   has_one :user
+  has_one :color
+  has_one :size
+
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
   validate :order_present

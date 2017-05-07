@@ -1,0 +1,26 @@
+<div class="row"> <!-- begin row 2 -->
+
+  <div class="col-md-12">
+    <% for @pre in Product.where(:category_id=> @product[:category_id], :brand_id => @product[:brand_id]).limit(8) %>
+    <% @i=Image.find_by_id(@pre.id) %>
+      <% @p=Product.find_by_id(@i.id)%>
+      <div class="col-md-3">
+          <%= link_to image_tag(@i.img_1, :class=>"img-responsive shoe_images imgs", :class=>"similar_shoe shoe_images"), product_path(@p)%>
+
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div> <!-- end row 2 -->
+
+
+<style>
+.similar_shoe{
+  height: 180px;
+  width: 220px;
+  margin-left: 20px !important;
+}
+
+</style>

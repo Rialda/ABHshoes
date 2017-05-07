@@ -1,0 +1,16 @@
+
+<div class="row">
+
+      <% for @i in @images %>
+        <% @p=Product.find_by_id(@i.id)%>
+        <% @col_img=Color.find_by_id(@p.id)%>
+        <% @pcol= Product.find(@p).colors %>
+        <% @pcolurl= Color.find_by_id(@pcol) %>
+
+        <div class="col-md-3">
+            <%= link_to image_tag(@i.img_1, :class=>"img-responsive shoe_images imgs"), product_path(@p)%>
+
+        </div>
+      <% end %>
+
+</div>

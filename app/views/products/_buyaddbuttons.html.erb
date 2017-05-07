@@ -4,13 +4,18 @@
       <span id="velicina_tag">
         <label for="sel2">Velicina:</label>
         <select class="form-control" id="sel2">
-          <option>Sve velicine</option>
+          <% for @s in @sizes %>
+          <option><%= @s.product_size %></option>
+          <% end %>
         </select>
       </span>
       <span id="velicina_tag">
         <label for="sel3">Boja:</label>
         <select class="form-control" id="sel3">
-          <option>Sve boje</option>
+          <% for @c in @colors %>
+             <option><%= @c.color_name %></option>
+          <% end %>
+
         </select>
       </span>
         <div class="input-group"><br/>

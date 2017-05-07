@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504192902) do
+ActiveRecord::Schema.define(version: 20170507192804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,9 +78,13 @@ ActiveRecord::Schema.define(version: 20170504192902) do
     t.datetime "updated_at",  null: false
     t.integer  "image_id"
     t.integer  "user_id"
+    t.integer  "colors_id"
+    t.integer  "size_id"
+    t.index ["colors_id"], name: "index_order_items_on_colors_id", using: :btree
     t.index ["image_id"], name: "index_order_items_on_image_id", using: :btree
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+    t.index ["size_id"], name: "index_order_items_on_size_id", using: :btree
     t.index ["user_id"], name: "index_order_items_on_user_id", using: :btree
   end
 
@@ -97,7 +101,9 @@ ActiveRecord::Schema.define(version: 20170504192902) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "order_status_id"
+    t.integer  "user_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "product_colors", force: :cascade do |t|
@@ -177,11 +183,14 @@ ActiveRecord::Schema.define(version: 20170504192902) do
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "order_items", "colors", column: "colors_id"
   add_foreign_key "order_items", "images"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "order_items", "sizes"
   add_foreign_key "order_items", "users"
   add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "users"
   add_foreign_key "product_colors", "colors"
   add_foreign_key "product_colors", "products"
   add_foreign_key "products", "brands"

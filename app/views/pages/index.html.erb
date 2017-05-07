@@ -3,43 +3,34 @@
 
 
   <div class="row">
-    <div class="col-md-6 offset-md-3">
 
-      <center><br/><br/><h5> Featured Products </h5> </center>
+  <div class="col-md-6 offset-md-3">
+
       <center>
+        <br/><br/><h5> Featured Products </h5>
+      </center>
+
+      <center>
+
         <div class="btn-group">
 
-  <select class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-      <% for @b in @brands %>
-      <option class="caret">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @b.brand_name %></option>
-          <% end %>
-  </select>
-</div>
-</center>
-</div>
-</div>
-
-
-<div class="row list_of_shoes">
-  <div class="col-md-3 offset-md-1">
-    <br/> <br/>
- </div>
-</div>
-
-<div class="row">
-      <% for @i in @images %>
-        <% @p=Product.find_by_id(@i.id)%>
-        <% @col_img=Color.find_by_id(@p.id)%>
-        <% @pcol= Product.find(@p).colors %>
-        <% @pcolurl= Color.find_by_id(@pcol) %>
-
-        <div class="col-md-3">
-            <%= link_to image_tag(@i.img_1, :class=>"img-responsive shoe_images imgs"), product_path(@p)%>
+            <select class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                <% for @b in @brands %>
+              <option class="caret"><%= @b.brand_name %></option>
+                    <% end %>
+            </select>
 
         </div>
-      <% end %>
+
+      </center>
+
+  </div>
 
 </div>
+</div>
+
+
+<div id="products"> <%= render '/products/products' %> </div>
 
 <div class="row ">
   <div class="col-md-6 offset-md-3">
@@ -68,6 +59,7 @@ center a{
   color: black !important;
 }
 .shoe_images{
+  margin-top: 15px !important;
   margin-bottom: 5px !important;
   margin-right: 0px !important;
 }
