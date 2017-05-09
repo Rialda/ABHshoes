@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
     @images=Image.all.paginate(page: params[:page], per_page: 16)
     @product = Product.new
-    @order_items = current_order.order_items
+    #@order_items = current_order.order_items
     # @num_of_items=current_order.order_items.size
     # @order_item = current_order.order_items.new
     #@order_itemss=OrderItem.where(:user_id => current_user.id)
