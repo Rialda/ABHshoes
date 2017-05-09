@@ -1,11 +1,7 @@
 <div class="container">
 
 
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
 
-</div>
-</div>
 
 
 <div class="row list_of_shoes">
@@ -18,7 +14,7 @@
 <div class="row">
 
   <div class="col-md-3 offset-md-0">
-  <b> FILTER </b>
+  <b> <!-- FILTERI --> </b>
   </div>
 
   <div class="col-md-3 category__name">
@@ -27,11 +23,7 @@
 
   <div class="col-md-3 offset-md-9">
     <div class="cijena">
-      <label for="sel1" class="label1">Cijena:</label>
-      <select id="cijena">
-        <option value="<%= Product.order(:price) %>">Od vece ka manjoj</option>
-        <option value="product.price_DESC=1">Od manje ka vecoj</option>
-      </select>
+  <!-- cijena -->
     </div>
     </div>
 
@@ -48,53 +40,7 @@
 
   <div class="col-md-3">
 
-    <div class="filters">
-      <label for="sel2">Brend:</label>
-      <select class="form-control" id="sel2">
-        <% for @b in @brands %>
-        <option><%= @b.brand_name %></option>
-            <% end %>
-      </select>
-
-    </div>
-
-    <div class="filters">
-      <label for="sel2">Velicina:</label>
-      <select class="form-control" id="sel2">
-        <% for @sz in @sizes %>
-        <option><%= @sz.product_size %></option>
-        <% end %>
-      </select>
-    </div>
-
-    <div class="filters">
-      <label for="sel2">Boja:</label>
-      <select class="form-control" id="sel2">
-        <% for @cl in @colors %>
-        <option> <%= @cl.color_name %></option>
-        <% end %>
-      </select>
-    </div>
-
-    <div class="filters">
-      <label for="sel2">Stil:</label>
-      <select class="form-control" id="sel2">
-        <% for @ss in @styles %>
-        <option><%= @ss.style_name %></option>
-        <% end %>
-      </select>
-    </div>
-
-    <div class="filters">
-      <label for="sel2">Cijena:</label>
-      <select class="form-control" id="sel2">
-        <option><%= link_to '5-41', @products_path, price_min: 5, price_max: 41 %></option>
-        <option><%= link_to '41-46', @products_path, price_min: 41, price_max: 46 %></option>
-        <option><%= link_to '46-50', @products_path, price_min: 46, price_max: 50 %></option>
-
-
-      </select>
-    </div>
+<!-- filteri -->
 
   </div>
 

@@ -2,8 +2,8 @@
 <h4> Adresa za dostavu i adresa za racun </h4>
 <div class="row">
   <div class="col-md-3"
-  <% for @a in @addresses %>
-  <% @adress_info=Address.find_by_user_id(current_user.id) %>
+  <% @adress_info=Address.where(:user_id=>current_user.id) %>
+    <% for @a in @adress_info %>
   <%= @a.ime_prezime1 %><br/>
   <%= @a.address1 %><br/>
   <%= @a.city1 %><br/>
@@ -14,15 +14,15 @@
   <% end %>
   </div>
 <div class="col-md-3"
-<% for @a in @addresses %>
-<% @adress_info=Address.find_by_user_id(current_user.id) %>
-<%= @a.ime_prezime1 %><br/>
-<%= @a.address1 %><br/>
-<%= @a.city1 %><br/>
-<%= @a.region1 %><br/>
-<%= @a.zip1 %><br/>
-<%= @a.country1 %><br/>
-<%= @a.telephone1 %><br/>
+<% @adress_info=Address.where(:user_id=>current_user.id) %>
+  <% for @a in @adress_info %>
+<%= @a.ime_prezime2 %><br/>
+<%= @a.address2 %><br/>
+<%= @a.city2 %><br/>
+<%= @a.region2 %><br/>
+<%= @a.zip2 %><br/>
+<%= @a.country2 %><br/>
+<%= @a.telephone2 %><br/>
 <% end %>
 </div>
 
