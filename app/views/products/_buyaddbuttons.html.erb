@@ -1,7 +1,8 @@
 <div class="velicina_kolicina">
   <div class="filters">
       <%= form_for @order_item, remote: true do |f| %>
-      <span id="velicina_tag">
+
+      <!-- <span id="velicina_tag">
         <label for="sel2">Velicina:</label>
         <select class="form-control" id="sel2">
           <% for @s in @sizes %>
@@ -9,6 +10,7 @@
           <% end %>
         </select>
       </span>
+
       <span id="velicina_tag">
         <label for="sel3">Boja:</label>
         <select class="form-control" id="sel3">
@@ -17,21 +19,47 @@
           <% end %>
 
         </select>
-      </span>
+      </span> -->
+
+
         <div class="input-group"><br/>
           <span id="kolicina_tag">
             <label for="sel3">Kolicina:</label><br/>
           <%= f.number_field :quantity, value: 1, class: "form-control", id: "sel3", min: 1 %>
         </span><br/><br/><br/>  </div>
 
+
+
+        <div class="check_auth">
+          <% if user_signed_in? %>
           <div class="input-group-btn">
         <%= f.hidden_field :product_id, value: @product.id %>
         <%= f.hidden_field :user_id %>
         <%= f.submit "Dodaj u korpu", class: "korpa_button" %>
         <span class="kupi_button" ><%= link_to "KUPI ODMAH", cart_path(@user_id) %></span>
           </div>
+          <% else %>
+          <div class="input-group-btn">
+            <% if :authenticate_user! %>
+        <span class="korpa_button" ><%= link_to "Dodaj u korpu", new_user_session_path %></span>
+        <span class="kupi_button" ><%= link_to "KUPI ODMAH", new_user_session_path %></span>
+        <% end %>
+          </div>
+
+          <% end %>
+
+        </div>
+
+
+
+
       <% end %>
 
   </div>
 
 </div>
+<style>
+.korpa_button a{
+  color: black !important;
+}
+</style>

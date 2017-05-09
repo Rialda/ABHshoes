@@ -7,7 +7,8 @@ end
 
 def create
   # Amount in cents
-  @amount = current_order.total * 100
+  @amount_price = (current_order.total).round(-1)
+  @amount=@amount_price.to_i
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],

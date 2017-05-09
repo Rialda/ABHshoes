@@ -1,26 +1,79 @@
-<h2>Log in</h2>
-
+<div class="forma col-md-offset-3">
+<h4><strong>Login to your account</strong></h4> <%= link_to('Create an account', new_user_registration_path, class:"napravi_racun") %>
+<br/> <br/><br/>
+<div class="log">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+
+<div class="enter_panel">
+  <div class="field form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: "form-control polje" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="field form-group">
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control polje" %>
   </div>
+</div>
 
+<br/>
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="field remember_opt">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "LOGIN", class:"login_btn" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<style>
+.enter_panel{
+  background-color: rgba(245, 245, 240, 0.3);
+  padding: 40px;
+  border: 1px #eaeae1 solid;
+  border-radius: 5px;
+
+}
+.forma{
+  width: 500px !important;
+}
+h4{
+  margin-bottom: -20px;-
+}
+.napravi_racun{
+  color: #cccc00 !important;
+  float: right;
+}
+.polje{
+  background-color: white !important;
+  width: 400px !important;
+
+}
+.remember_opt{
+  margin-bottom: -20px;
+}
+.login_btn {
+	background-color:#03090d;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:8px 24px;
+	text-decoration:none;
+  float: right;
+}
+.login_btn:hover {
+	background-color:#d8fc3a;
+  color: black !important;
+}
+.login_btn:active {
+	position:relative;
+	top:1px;
+}
+
+</style>

@@ -1,34 +1,90 @@
-<h2>Sign up</h2>
+
+<div class="forma col-md-offset-3">
+  <h4><strong>Create your account</strong></h4> <%= link_to('Login to your account', new_user_session_path, class:"napravi_racun") %>
+
+  <br/> <br/><br/>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
+<div class="enter_panel">
+  <div class="field form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: "form-control polje" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :username %><br />
-    <%= f.text_field :username%>
+    <%= f.text_field :username, class: "form-control polje" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control polje" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control polje" %>
   </div>
+</div>
 
   <div class="actions">
-    <%= f.submit "Prijava" %>
+    <%= f.submit "CREATE ACCOUNT", class:"login_btn" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+
+<style>
+.enter_panel{
+  background-color: rgba(245, 245, 240, 0.3);
+  padding: 40px;
+  border: 1px #eaeae1 solid;
+  border-radius: 5px;
+
+}
+.forma{
+  width: 500px !important;
+}
+h4{
+  margin-bottom: -20px;-
+}
+.napravi_racun{
+  color: #cccc00 !important;
+  float: right;
+}
+.polje{
+  background-color: white !important;
+  width: 400px !important;
+
+}
+.remember_opt{
+  margin-bottom: -20px;
+}
+.login_btn {
+	background-color:#03090d;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:8px 24px;
+	text-decoration:none;
+  float: right;
+  margin-top: 15px;
+}
+.login_btn:hover {
+	background-color:#d8fc3a;
+  color: black !important;
+}
+.login_btn:active {
+	position:relative;
+	top:1px;
+}
+
+</style>

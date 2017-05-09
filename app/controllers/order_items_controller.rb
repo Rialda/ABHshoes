@@ -1,7 +1,5 @@
 class OrderItemsController < ApplicationController
 
-
-
   def create
      @order = current_order
      @order_item = @order.order_items.new(order_item_params)
@@ -10,7 +8,9 @@ class OrderItemsController < ApplicationController
      @order_total = @order.total
      @order_subtotal = @order.subtotal
      @order_shipping = @order.shipping
-     @order.save
+     if @order.save
+       redirect_to cart_path(@user_id)
+     end
      session[:order_id] = @order.id
    end
 
