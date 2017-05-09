@@ -23,7 +23,6 @@ gem 'haml-rails'
 gem 'stripe'
 
 gem 'pg'
-#gem 'sqlite3'
 gem 'taps'
 
 # Use Puma as the app server
