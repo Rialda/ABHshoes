@@ -1,0 +1,105 @@
+<br/><br/>
+<h4> Adresa za dostavu i adresa za racun </h4>
+<div class="row">
+  <div class="col-md-3"
+  <% for @a in @addresses %>
+  <% @adress_info=Address.find_by_user_id(current_user.id) %>
+  <%= @a.ime_prezime1 %><br/>
+  <%= @a.address1 %><br/>
+  <%= @a.city1 %><br/>
+  <%= @a.region1 %><br/>
+  <%= @a.zip1 %><br/>
+  <%= @a.country1 %><br/>
+  <%= @a.telephone1 %><br/>
+  <% end %>
+  </div>
+<div class="col-md-3"
+<% for @a in @addresses %>
+<% @adress_info=Address.find_by_user_id(current_user.id) %>
+<%= @a.ime_prezime1 %><br/>
+<%= @a.address1 %><br/>
+<%= @a.city1 %><br/>
+<%= @a.region1 %><br/>
+<%= @a.zip1 %><br/>
+<%= @a.country1 %><br/>
+<%= @a.telephone1 %><br/>
+<% end %>
+</div>
+
+<div class="charge_kolona">
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+  </article>
+
+    <div class="col-md-6 korpa">
+
+      <img src="/placanje.png" id="korpa" />
+      <br/><br/><br/>
+
+  <%= render '/carts/vasa_korpa' %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button dugme"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="abhShoes"
+          data-description="Placanje karticom"
+          data-email="<%= current_user.email %>"
+          data-label="Plati <%= current_order.total %> KM"
+          data-amount="<%= current_order.total*100 %>"
+          data-locale="auto"></script>
+      </div>
+
+
+<% end %>
+
+    </div>
+</div>
+
+<style>
+.stripe-button-el{
+  float: right !important;
+  margin-top: 10px !important;
+  margin-right: -120% !important;
+}
+.plati_btn {
+	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background-color:#518afc;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #035a8c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:14px;
+	padding:8px 39px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.plati_btn:hover {
+	background-color:#075dbf;
+  text-decoration:none;
+  color: white !important;
+}
+.plati_btn:active {
+	position:relative;
+	top:1px;
+}
+#korpa{
+  width: 350px !important;
+  margin-right: -118% !important;
+}
+.charge_kolona{
+float: right !important;
+}
+.korpa{
+margin-right: -20% !important;
+}
+</style>

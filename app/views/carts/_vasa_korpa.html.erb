@@ -3,15 +3,20 @@
     <div class="kockica">
     <strong> Narudzba </strong><span class="sivo dodatak"><%= @num_of_items %> proizvoda</span>
     <div class="desno">
-    <p class="sivo">  Cijena: <br/></p> <span class="dodatak"><strong><%= @order_subtotal %>KM </strong></span>
+
+
+    <p class="sivo">  Cijena: <br/></p> <span class="dodatak"><strong><%= current_order.subtotal %>KM </strong></span>
       <br/><br/>
-    <p class="sivo">  Dostava: <br/></p> <span class="dodatak"><strong> <%= @order_shipping %> KM </strong></span>
+    <p class="sivo">  Dostava: <br/></p> <span class="dodatak"><strong> <%= current_order.shipping %> KM </strong></span>
       <br/>
       <hr/>
-    <span class="sivo">Ukupno </span> <span class="dodatak"><strong> <%= @order_total %> KM  </strong></span>
+    <span class="sivo">Ukupno </span> <span class="dodatak"><strong> <%= current_order.total %> KM  </strong></span>
     </div>
     </div>
+    <!-- <% cui=current_user.id %>
+    <% @orders=Order.find_by_id(:id) %>
 
+    <%=  current_order.id %> -->
 
 
 
@@ -92,6 +97,7 @@ text-align: right;
 	color:#ffffff;
 	font-family:Verdana;
 	font-size:14px;
+  font-weight: bold;
 	padding:11px 24px;
 	text-decoration:none;
 }

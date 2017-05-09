@@ -1,0 +1,163 @@
+
+<h3> Adresa za dostavu </h3>
+<br/>
+
+<%= form_for @address do |f| %>
+<div class="row">
+<div class="col-md-6">
+  <div class="adrese">
+
+
+<div class="form-group">
+  <label for="ime1">Ime i prezime</label><br/>
+  <%= f.text_field :ime_prezime1, id:"ime1", class: "form-control" %></br>
+</div>
+
+<div class="form-group">
+  <label for="add1">Adresa</label><br/>
+  <%= f.text_field :address1, id:"add1", class: "form-control"  %></br>
+</div>
+
+
+<div class="form-group">
+  <label for="grad1">Grad</label><br/>
+  <%= f.text_field :city1, id:"grad1", class: "form-control"  %></br>
+</div>
+
+
+<div class="form-group">
+  <label for="reg1">Regija</label><br/>
+  <%= f.text_field :region1, id:"reg1", class: "form-control"  %></br>
+</div>
+
+
+<div class="form-group">
+  <label for="zip1">ZIP</label><br/>
+  <%= f.text_field :zip1, id:"zip1", class: "form-control"  %></br>
+</div>
+
+
+<div class="form-group">
+  <label for="drzava1">Drzava</label><br/>
+  <%= f.text_field :country1, id:"drzava1", class: "form-control bfh-countries"  %></br>
+</div>
+
+<div class="form-group">
+  <label for="broj1">Broj telefona</label><br/>
+  <%= f.text_field :telephone1, id:"broj1", class: "form-control"  %></br>
+</div>
+
+<br/><br/>
+<h3> Adresa za racun </h3>
+<label class="checkbox-inline">
+   <input class="pitanje" type="checkbox" value="1" onchange="valueChanged()">Koristi adresu za dostavu
+ </label>
+<br/>
+
+<!-- CHECKBOX -->
+<br/><br/><br/><br/>
+
+
+
+ <!-- DRUGE ADRESE -->
+
+<div class="druge_adrese">
+  <div class="form-group">
+    <label for="ime2">Ime i prezime</label><br/>
+    <%= f.text_field :ime_prezime2, id:"ime2", class: "form-control" %></br>
+  </div>
+
+  <div class="form-group">
+    <label for="add2">Adresa</label><br/>
+    <%= f.text_field :address2, id:"add2", class: "form-control"  %></br>
+  </div>
+
+  <div class="form-group">
+    <label for="grad2">Grad</label><br/>
+    <%= f.text_field :city2, id:"grad2", class: "form-control"  %></br>
+  </div>
+
+
+  <div class="form-group">
+    <label for="reg2">Regija</label><br/>
+    <%= f.text_field :region2, id:"reg2", class: "form-control"  %></br>
+  </div>
+
+
+  <div class="form-group">
+    <label for="zip2">ZIP</label><br/>
+    <%= f.text_field :zip2, id:"zip2", class: "form-control"  %></br>
+  </div>
+
+
+  <div class="form-group">
+    <label for="drzava2">Drzava</label><br/>
+    <%= f.text_field :country2, id:"drzava2", class: "form-control bfh-countries"  %></br>
+  </div>
+
+
+  <div class="form-group">
+    <label for="broj2">Broj telefona</label><br/>
+    <%= f.text_field :telephone2, id:"broj2", class: "form-control"  %></br>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<div class="col-md-3 col-md-offset-3 vasa_korpa">
+
+  <img src="/dostava.png" id="korpa" style="width: 355px !important; margin-right: -33% !important;"/>
+
+  <br/><br/><br/>
+
+<%= render '/carts/vasa_korpa' %>
+
+<div id="btns">
+<%= link_to 'NAZAD', cart_path, class:"odustani_btn" %>
+<%= f.submit "Nastavi", class:"nastavi_btn" %>
+</div>
+
+</div>
+
+</div>
+<% end %>
+
+
+
+
+
+<script type="text/javascript">
+function valueChanged()
+{
+    if($('.pitanje').is(":checked"))
+        $(".druge_adrese").hide();
+    else
+        $(".druge_adrese").show();
+}
+</script>
+
+<!-- jQuery -->
+   <script src="js/jquery-1.10.2.min.js"></script>
+
+   <!-- Bootstrap -->
+   <script src="js/bootstrap.min.js"></script>
+
+   <!-- Bootstrap Form Helpers -->
+   <script src="js/bootstrap-formhelpers.min.js"></script>
+
+<style>
+.vasa_korpa{
+
+}
+.adrese{
+}
+#btns{
+margin-top: 10px;
+float: right !important;
+margin-right: -35%;
+}
+</style>

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ime_prezime1: MyText
+  address1: MyText
+  city1: MyText
+  region1: MyText
+  zip1: MyText
+  country1: MyText
+  telephone1: MyText
+  ime_prezime2: MyText
+  address2: MyText
+  city2: MyText
+  region2: MyText
+  zip2: MyText
+  country2: MyText
+  telephone2: MyText
+  user: one
+
+two:
+  ime_prezime1: MyText
+  address1: MyText
+  city1: MyText
+  region1: MyText
+  zip1: MyText
+  country1: MyText
+  telephone1: MyText
+  ime_prezime2: MyText
+  address2: MyText
+  city2: MyText
+  region2: MyText
+  zip2: MyText
+  country2: MyText
+  telephone2: MyText
+  user: two

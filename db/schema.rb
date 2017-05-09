@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507192804) do
+ActiveRecord::Schema.define(version: 20170509101138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.text     "ime_prezime1"
+    t.text     "address1"
+    t.text     "city1"
+    t.text     "region1"
+    t.text     "zip1"
+    t.text     "country1"
+    t.text     "telephone1"
+    t.text     "ime_prezime2"
+    t.text     "address2"
+    t.text     "city2"
+    t.text     "region2"
+    t.text     "zip2"
+    t.text     "country2"
+    t.text     "telephone2"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "brands", force: :cascade do |t|
     t.string   "brand_name"
@@ -148,6 +169,28 @@ ActiveRecord::Schema.define(version: 20170507192804) do
     t.index ["size_id", "product_id"], name: "index_products_sizes_on_size_id_and_product_id", using: :btree
   end
 
+  create_table "registrations", force: :cascade do |t|
+    t.text     "ime_prezime1"
+    t.text     "adresa1"
+    t.text     "grad1"
+    t.text     "regija1"
+    t.integer  "zip1"
+    t.text     "drzava1"
+    t.text     "telefon1"
+    t.text     "ime_prezime2"
+    t.text     "adresa2"
+    t.text     "grad2"
+    t.text     "regija2"
+    t.text     "zip2"
+    t.text     "drzava2"
+    t.text     "telefon2"
+    t.integer  "order_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "card_token"
+    t.index ["order_id"], name: "index_registrations_on_order_id", using: :btree
+  end
+
   create_table "sizes", force: :cascade do |t|
     t.integer  "product_size"
     t.datetime "created_at",   null: false
@@ -179,6 +222,7 @@ ActiveRecord::Schema.define(version: 20170507192804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "carts", "images"
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
@@ -198,4 +242,5 @@ ActiveRecord::Schema.define(version: 20170507192804) do
   add_foreign_key "products", "colors"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "styles"
+  add_foreign_key "registrations", "orders"
 end

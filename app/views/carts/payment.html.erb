@@ -12,11 +12,14 @@
 
 <div id="dugmici">
   <span id="stripe">stripe  &nbsp;</span>
-  <span class="plati_btn"> <%= link_to(addresses_path)do %><strong> Plati <%= @order.total%></strong><%end %></span>
+  <span class="plati_btn"> <%= link_to(addresses_path)do %><strong> Plati <%=current_order.total%></strong><%end %></span>
 </div>
 
 </div>
 </div>
+
+
+
 
 <style>
 #stripe{

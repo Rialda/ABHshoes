@@ -1,0 +1,35 @@
+= form_for @registration do |f|
+  - if @registration.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@registration.errors.count, "error")
+        prohibited this registration from being saved:
+      %ul
+        - @registration.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.hidden_field :order_id, value: current_order.id
+  .field
+    = f.label :ime_prezime1
+    = f.text_field :ime_prezime1
+  .field
+    = f.label :adresa1
+    = f.text_field :adresa1
+  .field
+    = f.label :grad1
+    = f.text_field :grad1
+  .field
+    = f.label :regija1
+    = f.text_field :regija1
+  .field
+    = f.label :zip1
+    = f.text_field :zip1
+  .field
+    = f.label :drzava1
+    = f.text_field :drzava1
+  .field
+    = f.label :telefon1
+    = f.text_field :telefon1
+  .actions
+    %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js",
+          data: {amount: current_order.total*100, description: current_order.total*100, key: Rails.application.secrets.stripe_publishable_key}}
